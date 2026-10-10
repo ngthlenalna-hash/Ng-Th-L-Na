@@ -1,0 +1,7 @@
+{
+  "name": "EduCraft Innovate - Nền Tảng Giáo Viên Đổi Mới & Xưởng Tạo App Giảng Dạy",
+  "description": "Hệ sinh thái dành cho giáo viên đổi mới sáng tạo: Xây dựng và liên kết các ứng dụng giảng dạy tương tác (Vòng quay gọi tên, Đấu trường Quiz, Trạm học tập, Flashcard, Rubric), tích hợp AI soạn kế hoạch bài dạy và phương pháp sư phạm hiện đại.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}
+
