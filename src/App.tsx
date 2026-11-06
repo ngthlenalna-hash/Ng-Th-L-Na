@@ -3,6 +3,7 @@ import { ConnectedApp, AppType } from './types';
 import { INITIAL_APPS } from './data/defaultData';
 import { Header } from './components/layout/Header';
 import { Footer } from './components/layout/Footer';
+import { HomeView } from './components/home/HomeView';
 import { AppHub } from './components/apps/AppHub';
 import { AppStudio } from './components/builder/AppStudio';
 import { PedagogyHub } from './components/pedagogy/PedagogyHub';
@@ -30,7 +31,7 @@ export default function App() {
     return INITIAL_APPS;
   });
 
-  const [activeTab, setActiveTab] = useState<'apps' | 'studio' | 'pedagogy' | 'lesson_plan'>('apps');
+  const [activeTab, setActiveTab] = useState<'home' | 'apps' | 'studio' | 'pedagogy' | 'lesson_plan'>('home');
   const [editingApp, setEditingApp] = useState<ConnectedApp | null>(null);
   const [shareApp, setShareApp] = useState<ConnectedApp | null>(null);
   const [presentationAppId, setPresentationAppId] = useState<string | null>(null);
@@ -105,6 +106,18 @@ export default function App() {
 
       {/* Main Content Area */}
       <main className="flex-1 max-w-7xl w-full mx-auto px-4 sm:px-6 py-6 md:py-8">
+        {activeTab === 'home' && (
+          <HomeView
+            apps={apps}
+            onNavigateTab={(tab) => {
+              if (tab === 'studio') setEditingApp(null);
+              setActiveTab(tab);
+            }}
+            onLaunchPresentation={(appId) => setPresentationAppId(appId)}
+            onOpenAppStudio={handleOpenStudio}
+          />
+        )}
+
         {activeTab === 'apps' && (
           <AppHub
             apps={apps}

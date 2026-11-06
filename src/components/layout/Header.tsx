@@ -2,8 +2,8 @@ import React from 'react';
 import { Tv } from 'lucide-react';
 
 interface HeaderProps {
-  activeTab: 'apps' | 'studio' | 'pedagogy' | 'lesson_plan';
-  onSelectTab: (tab: 'apps' | 'studio' | 'pedagogy' | 'lesson_plan') => void;
+  activeTab: 'home' | 'apps' | 'studio' | 'pedagogy' | 'lesson_plan';
+  onSelectTab: (tab: 'home' | 'apps' | 'studio' | 'pedagogy' | 'lesson_plan') => void;
   onEnterPresentationMode: () => void;
 }
 
@@ -13,28 +13,37 @@ export const Header: React.FC<HeaderProps> = ({
   onEnterPresentationMode,
 }) => {
   return (
-    <header className="flex items-center justify-between gap-8 px-6 py-4 bg-white border-b border-slate-200 sticky top-0 z-40">
+    <header className="flex items-center justify-between gap-4 sm:gap-8 px-4 sm:px-6 py-4 bg-white border-b border-slate-200 sticky top-0 z-40">
       {/* Zone 1: Single text element wordmark */}
       <a
         href="#"
         onClick={(e) => {
           e.preventDefault();
-          onSelectTab('apps');
+          onSelectTab('home');
         }}
+        style={{ borderColor: '#2b0f1d' }}
         className="text-lg font-bold tracking-tight text-slate-900 whitespace-nowrap shrink-0 hover:text-sky-700 transition-colors"
       >
-        EduCraft Innovate
+        Hệ Sinh Thái Ứng Dụng
       </a>
 
-      {/* Zone 2: 4 concise single-line text navigation links */}
-      <nav className="hidden md:flex items-center gap-6 text-sm font-medium text-slate-600">
+      {/* Zone 2: 3 concise single-line text navigation links: Trang chủ, App lớp học, Tạo app */}
+      <nav className="flex items-center gap-4 sm:gap-6 text-sm font-medium text-slate-600">
+        <button
+          onClick={() => onSelectTab('home')}
+          className={`hover:text-slate-900 transition-colors whitespace-nowrap shrink-0 cursor-pointer ${
+            activeTab === 'home' ? 'text-sky-600 font-semibold' : ''
+          }`}
+        >
+          Trang chủ
+        </button>
         <button
           onClick={() => onSelectTab('apps')}
           className={`hover:text-slate-900 transition-colors whitespace-nowrap shrink-0 cursor-pointer ${
             activeTab === 'apps' ? 'text-sky-600 font-semibold' : ''
           }`}
         >
-          Kho App Lớp Học
+          App lớp học
         </button>
         <button
           onClick={() => onSelectTab('studio')}
@@ -42,23 +51,7 @@ export const Header: React.FC<HeaderProps> = ({
             activeTab === 'studio' ? 'text-sky-600 font-semibold' : ''
           }`}
         >
-          Xưởng Tạo App
-        </button>
-        <button
-          onClick={() => onSelectTab('pedagogy')}
-          className={`hover:text-slate-900 transition-colors whitespace-nowrap shrink-0 cursor-pointer ${
-            activeTab === 'pedagogy' ? 'text-sky-600 font-semibold' : ''
-          }`}
-        >
-          Phương Pháp 5512
-        </button>
-        <button
-          onClick={() => onSelectTab('lesson_plan')}
-          className={`hover:text-slate-900 transition-colors whitespace-nowrap shrink-0 cursor-pointer ${
-            activeTab === 'lesson_plan' ? 'text-sky-600 font-semibold' : ''
-          }`}
-        >
-          Trợ Lý Soạn Bài AI
+          Tạo app
         </button>
       </nav>
 

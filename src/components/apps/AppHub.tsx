@@ -67,7 +67,7 @@ export const AppHub: React.FC<AppHubProps> = ({
             </span>
 
             <h1 className="text-3xl md:text-5xl font-extrabold tracking-tight text-slate-900 text-balance leading-tight">
-              Giáo Viên Đổi Mới & Xưởng Tạo App Giảng Dạy Liên Kết
+              Hệ Sinh Thái Ứng Dụng & Xưởng Tạo App Giảng Dạy Liên Kết
             </h1>
 
             <p className="text-sm md:text-base text-slate-600 max-w-xl leading-relaxed">
